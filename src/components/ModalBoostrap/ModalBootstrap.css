@@ -1,0 +1,35 @@
+.authError{
+    background-color: red;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.authError {
+    animation-name: dissapear;
+    animation-duration: 4500ms;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes dissapear {
+    0% {
+        opacity: 0;
+    }
+    
+    25% {
+        opacity: 1;
+    }
+    
+    50%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 1;
+        
+    }
+    100% {
+        opacity: 0;
+  
+    }
+  }

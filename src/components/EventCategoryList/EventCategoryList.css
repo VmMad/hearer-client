@@ -1,0 +1,8 @@
+.eventCategoryList{
+    padding: 0;
+    height:70vh;
+}
+
+.buttoncategory:active{
+border: 0;
+}

@@ -1,0 +1,23 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.navbar span{
+    color: white;
+}
+.navbar a{
+    color: gray;
+}
+
+.navbar a.active{
+    color: rgb(102, 102, 102);
+}
+.navbar-nav a{
+    margin: 0 5px;
+}

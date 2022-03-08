@@ -1,0 +1,27 @@
+.eventCategoryList{
+    border:.15em solid #333;
+}
+
+.createEvent{
+    position: absolute;
+    right: 10px;
+}
+
+.createEventImg{
+    height: 30px;
+    margin-left: 10px;
+    width: 30px;
+    right: 10px;
+    border-radius: 100%;
+    box-shadow: none;
+    transition: box-shadow 0.1s ease-out 50ms;
+}
+.createEventImg:hover{
+    box-shadow: .03rem .03rem 6px rgba(3, 56, 136,.2);
+    transition: box-shadow 0.1s ease-in 50ms;
+
+}
+
+.eventPage{
+    position: relative;
+}
