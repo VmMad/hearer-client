@@ -3,5 +3,6 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    border: .15em solid #333;
+    border: .10em solid #333;
+    padding : 20px;
 }

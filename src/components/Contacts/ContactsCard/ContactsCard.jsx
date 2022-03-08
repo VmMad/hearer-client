@@ -10,11 +10,10 @@ import contactsService from "../../../services/contacts.service"
 const ContactsCard = ({ username, email, _id, role }) => {
 
     const navigate = useNavigate()
-    console.log('aaaaaaaaaaaa')
 
     const { user } = useContext(AuthContext)
     const [userLoggedData, setUserLoggedData] = useState()
-    const [showButton, setShowButton] = useState(true)
+    const [showButton, setShowButton] = useState(userLoggedData?.contacts.includes(_id))
 
     const getUserData = () => {
         userService
@@ -40,23 +39,21 @@ const ContactsCard = ({ username, email, _id, role }) => {
             .catch(err => console.log(err))
     }
 
-
     return (
-        <div className="contactCard">
+        <div className="contactCard mt-3">
             <span>{username}</span>
             <span>{email}</span>
 
-            {userLoggedData && ((userLoggedData.contacts.includes(_id) && showButton) ||
+            {(!showButton && window.location.pathname != "/mycontacts") ?
                 <Button variant="warning" className="btn-eliminar-contacto" onClick={() => {
-                    setShowButton(false)
+                    setShowButton(!showButton)
                     console.log(showButton)
                     acceptHelp(user.username, _id)
-                }}>Aceptar ayuda</Button>)}
-
-            <Button variant="warning" className="btn-eliminar-contacto" onClick={() => {
-                deleteContact(user.username, _id)
-            }
-            }>Delete</Button>
+                }}>Aceptar ayuda</Button> :
+                <Button variant="warning" className="btn-eliminar-contacto" onClick={() => {
+                    setShowButton(!showButton)
+                    deleteContact(user.username, _id)
+                }}>Delete</Button>}
             {role === 'helper' ? <Button onClick={() => navigate(`/helperprofile/${_id}`)}>credentials</Button> :
                 <Button>send message</Button>
             }

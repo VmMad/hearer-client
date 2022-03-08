@@ -25,7 +25,7 @@ const ContactsList = () => {
         <>
             <Container>
                 <Row>
-                    <Col>
+                    <Col className="mt-2">
                         {contacts.map((element, index) => {
                             return <ContactsCard key={index} {...element} />
                         })}

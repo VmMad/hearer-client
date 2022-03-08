@@ -83,8 +83,8 @@ const CreateEventForm = () => {
 
 
     return (
-        <Container>
-            <Form onSubmit={handleFormSubmit} formulario={eventData}>
+        <Container className='createEventForm'>
+            <Form onSubmit={handleFormSubmit} formulario={eventData} className='formEvent'>
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Event Title:</Form.Label>
                     <Form.Control type="text" name="title" value={title} placeholder="Title" onChange={e => handleFormChange(e)} />
@@ -127,7 +127,7 @@ const CreateEventForm = () => {
                 <Form.Group className="mb-3" controlId="assistants">
                     <Form.Check type="checkbox" label="I'm attending" onChange={e => handleFormChange(e)} name="assistants" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" className="editButton">
                     Edit
                 </Button>
             </Form >
