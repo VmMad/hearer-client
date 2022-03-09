@@ -16,20 +16,20 @@ const HelperProfilePage = () => {
     const handleModalClose = () => setShowModal(false)
     const handleModalOpen = () => setShowModal(true)
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
     const [helper, setHelper] = useState()
 
-     useEffect(() => {
+    useEffect(() => {
         loadHelper()
     }, [])
 
-    const {id} = useParams()
-    
-    const loadHelper =()=>{
+    const { id } = useParams()
+
+    const loadHelper = () => {
         userService
             .getUser(id)
-            .then(({data}) => {
+            .then(({ data }) => {
                 setHelper(data)
             })
     }
@@ -40,11 +40,11 @@ const HelperProfilePage = () => {
     return (
         <article>
             {helper && (!editing ?
-            <>  <HelpProfile user={helper} />
-                <Button onClick={() => setEditing(true)}>editar</Button>
-            </> : <EditProfileForm setEditing={setEditing} user={helper} />)}
+                <>  <HelpProfile user={helper} />
+                    <Button onClick={() => setEditing(true)}>editar</Button>
+                </> : <EditProfileForm setEditing={setEditing} user={helper} setHelper={setHelper} />)}
             {id === user?._id ? null : <Button onClick={() => handleModalOpen()}>contactar</Button>}
-            <ModalMail handleModalClose={handleModalClose} showModal={showModal}/>
+            <ModalMail handleModalClose={handleModalClose} showModal={showModal} />
         </article>
 
     )

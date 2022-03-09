@@ -2,15 +2,12 @@ import { Row } from "react-bootstrap"
 
 import FeelingCard from '../FeelingCard/FeelingCard'
 
-const FeelingsList = ({ feelings }) => {
+const FeelingsList = ({ feelings, setFeelings }) => {
 
 
     return (
         <Row>{
-            feelings.map((e, index) => {
-                console.log(e)
-                return <FeelingCard feeling={e} key={index} />
-            })
+            feelings.map((e, index) => <FeelingCard feeling={e} key={index} setFeelings={setFeelings} />)
         }</Row>
     )
 }

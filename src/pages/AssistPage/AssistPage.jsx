@@ -14,13 +14,14 @@ const AssistPage = () => {
     const [userData, setUserData] = useState({})
 
 
+
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
         loadTroubles()
     }, [searchParams])
 
-    useEffect(() => getUserData(user?._id), [])
+    useEffect(() => getUserData(), [user])
 
     const loadTroubles = () => {
         troubleService
@@ -29,19 +30,20 @@ const AssistPage = () => {
             .catch(err => console.log(err))
     }
 
-    const getUserData = (_id) => {
+    const getUserData = () => {
         userService
-            .getUser(_id)
+            .getUserLogged()
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
-
 
     return (
         <Container>
             <SearchPosts setSearchParams={setSearchParams} loadTroubles={loadTroubles} />
             {troubles && troubles.map((feeling, i) => {
-                return <FeelingCard feeling={feeling} key={i} />
+
+                return <FeelingCard feeling={feeling} key={i} setTroubles={setTroubles}
+                    isHelper={feeling.helpers.some(elm => elm._id === user._id)} userData={userData} setUserData={setUserData} />
             })}
         </Container>
     )

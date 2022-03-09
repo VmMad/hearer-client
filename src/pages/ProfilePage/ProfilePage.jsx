@@ -23,7 +23,7 @@ const ProfilePage = () => {
     }
 
     return (
-        <FeelingsList feelings={feelings} />
+        <FeelingsList feelings={feelings} setFeelings={setFeelings} />
     )
 }
 export default ProfilePage

@@ -32,7 +32,9 @@ class UserService {
         return this.api.put(`/accepthelper`, { helper_id })
     }
 
-
+    getUserLogged = () => {
+        return this.api.get(`/user`)
+    }
 }
 
 const userService = new UserService()

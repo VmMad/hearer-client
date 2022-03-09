@@ -1,19 +1,14 @@
-import { useContext } from "react"
 import { Col } from "react-bootstrap"
-import { AuthContext } from "../../context/auth.context"
 import ContactsCard from "../Contacts/ContactsCard/ContactsCard"
 
-const HelperList = ({ helpers }) => {
-
-    const { user } = useContext(AuthContext)
-
-    console.log("tu usuario", user)
+const HelperList = ({ helpers, setTroubles, setFeelings }) => {
 
     return (
         <Col>
             {
                 helpers.map((elm, index) => {
-                    return <ContactsCard {...elm} key={index} />
+                    return <ContactsCard {...elm} key={index} setTroubles={setTroubles
+                    } setFeelings={setFeelings} />
                 })}
         </Col>
 

@@ -4,7 +4,6 @@ import troubleService from '../../services/troubles.service'
 import FeelingCard from "../../components/FeelingCard/FeelingCard"
 import eventsService from "../../services/events.service"
 import EventList from "../../components/EventList/EventList"
-
 import { AuthContext } from "../../context/auth.context"
 import { useEffect, useState, useContext } from "react"
 import { Container, Button } from 'react-bootstrap'

@@ -17,12 +17,12 @@ class ContactsService {
         })
     }
 
-    getUserContacts = username => {
-        return this.api.get(`/${username}/contacts`)
+    getUserContacts = () => {
+        return this.api.get(`/mycontacts`)
     }
 
     deleteContact = (id) => {
-        return this.api.post(`/contacts/${id}`)
+        return this.api.post(`/contacts/${id}/delete`)
     }
 
 

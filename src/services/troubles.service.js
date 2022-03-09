@@ -48,8 +48,11 @@ class TroubleService {
         return this.api.get(`/${id}`)
     }
 
-    offerHelp = (id, idHelper) => {
-        return this.api.put(`/${id}/offerhelp`, { idHelper })
+    offerHelp = (id) => {
+        return this.api.put(`/${id}/offerhelp`)
+    }
+    acceptHelp = idHelper => {
+        return this.api.put(`/deleteFromHelperOffers`, { idHelper })
     }
 
 }

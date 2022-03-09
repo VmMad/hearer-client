@@ -8,7 +8,6 @@ import eventsService from "./../../services/events.service"
 import GoogleMaps from "../GoogleMap/GoogleMap"
 
 
-
 const CreateEventForm = () => {
 
     const { user } = useContext(AuthContext)

@@ -1,10 +1,10 @@
 import mailService from '../../services/mail.service'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Modal } from 'react-bootstrap'
 import { useState, useContext } from "react"
 import { AuthContext } from "../../context/auth.context"
 
 
-const MailForm = () => {
+const MailForm = ({ handleClose }) => {
 
 
     const { user } = useContext(AuthContext)
@@ -21,6 +21,7 @@ const MailForm = () => {
     }
 
     function handleSubmit(e) {
+        handleClose()
         e.preventDefault()
 
 
@@ -32,7 +33,7 @@ const MailForm = () => {
     }
 
     return (
-        <Form onSubmit={handleSubmit} >
+        <Form onSubmit={handleSubmit} className="container">
             <Form.Group className="mb-3"  >
                 <Form.Label>For:</Form.Label>
                 <Form.Control type="email" name="email" onChange={handleInputChange} />
@@ -45,7 +46,20 @@ const MailForm = () => {
                 <Form.Label>message</Form.Label>
                 <Form.Control type="text" name="message" onChange={handleInputChange} />
             </Form.Group>
-            <Button variant="dark" type="submit" style={{ width: '100%' }}>send</Button>
+            {window.location.pathname == "/mycontacts" ?
+                <Modal.Footer>
+                    <Button variant="dark" type="submit" size='lg'>Send</Button>
+                </Modal.Footer>
+                : <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cancelar
+                    </Button>
+
+                    <Button variant="primary" onClick={handleClose}>
+                        Enviar mensaje
+                    </Button>
+                </Modal.Footer>
+            }
         </Form>
     )
 }

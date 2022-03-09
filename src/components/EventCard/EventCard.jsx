@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/auth.context"
 import eventService from "../../services/events.service"
 
 
-const EventCard = ({ title, description, assistants, location, _id, loadEvents, assists, owner }) => {
+const EventCard = ({ title, description, assistants, _id, loadEvents, assists, owner, imgSrc }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -18,12 +18,12 @@ const EventCard = ({ title, description, assistants, location, _id, loadEvents, 
     return (
         < Col xs={5} style={{ wordWrap: "break-word" }}
             className="eventCard text-center">
+            <img src={imgSrc} />
             <h2>{title}</h2>
             <hr />
             <p>{description}</p>
             <hr />
             <div className="d-flex flex-column justify-content-around">
-                <p>Location:{location.coordinates}</p>
                 <p>{assistants.length} assistants</p>
             </div>
             <Button variant="info" className="assistButton" onClick={() => navigate(`/event/${_id}`)}>View Details</Button>

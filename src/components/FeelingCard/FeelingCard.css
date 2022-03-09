@@ -1,0 +1,9 @@
+.noHelpers{
+    border: .10em solid #333;
+    text-align:center;
+    background-color: rgba(0,0,0,.1);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    
+}
