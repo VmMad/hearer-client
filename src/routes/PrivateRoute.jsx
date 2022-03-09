@@ -17,7 +17,6 @@ function PrivateRoute() {
     if (!isLoggedIn) {
         // const message = { ...messageInfo, title: "Debes iniciar sesion para ver esto" }
         // setMessageInfo(message)
-        console.log('aaaaaaaaaaaaaa')
         return <Navigate to="/login" />
     }
 

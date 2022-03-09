@@ -5,6 +5,8 @@ import eventService from "./../../services/events.service"
 import "./CreateEventForm.css"
 import { useNavigate } from "react-router-dom"
 import eventsService from "./../../services/events.service"
+import GoogleMaps from "../GoogleMap/GoogleMap"
+
 
 
 const CreateEventForm = () => {
@@ -130,6 +132,7 @@ const CreateEventForm = () => {
                 <Button variant="primary" type="submit" className="editButton">
                     Edit
                 </Button>
+                <GoogleMaps />
             </Form >
         </Container >
     )
