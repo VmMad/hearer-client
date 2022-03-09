@@ -15,9 +15,7 @@ const ContactsList = () => {
     const loadContactList = () => {
         contactsService
             .getUserContacts(user.username)
-            .then(({ data }) => {
-                setContacts(data)
-            })
+            .then(({ data }) => setContacts(data))
             .catch(err => console.log(err))
     }
 
@@ -27,7 +25,7 @@ const ContactsList = () => {
                 <Row>
                     <Col className="mt-2">
                         {contacts.map((element, index) => {
-                            return <ContactsCard key={index} {...element} />
+                            return <ContactsCard key={index} {...element} setContacts={setContacts} />
                         })}
                     </Col>
                 </Row>

@@ -7,7 +7,7 @@ import { AuthContext } from "../../../context/auth.context"
 import contactsService from "../../../services/contacts.service"
 
 
-const ContactsCard = ({ username, email, _id, role }) => {
+const ContactsCard = ({ username, email, _id, role, setContacts }) => {
 
     const navigate = useNavigate()
 
@@ -25,17 +25,18 @@ const ContactsCard = ({ username, email, _id, role }) => {
     useEffect(() => user && getUserData(), [user])
 
 
-    const acceptHelp = () => {
+    const acceptHelp = (_id) => {
+        console.log(_id)
         userService
-            .acceptHelper(user._id, _id)
-            .then(({ data }) => console.log(data))
+            .acceptHelper(_id)
+            .then(resp => console.log(resp))
             .catch(err => console.log(err))
     }
 
-    const deleteContact = (loggedUsername, userToDelete) => {
+    const deleteContact = (userToDelete) => {
         contactsService
             .deleteContact(userToDelete)
-            .then(({ data }) => console.log(data))
+            .then(({ data }) => setContacts(data))
             .catch(err => console.log(err))
     }
 
@@ -45,10 +46,9 @@ const ContactsCard = ({ username, email, _id, role }) => {
             <span>{email}</span>
 
             {(!showButton && window.location.pathname != "/mycontacts") ?
-                <Button variant="warning" className="btn-eliminar-contacto" onClick={() => {
+                <Button variant="warning" className="btn-accepthelp" onClick={() => {
                     setShowButton(!showButton)
-                    console.log(showButton)
-                    acceptHelp(user.username, _id)
+                    acceptHelp(_id)
                 }}>Aceptar ayuda</Button> :
                 <Button variant="warning" className="btn-eliminar-contacto" onClick={() => {
                     setShowButton(!showButton)

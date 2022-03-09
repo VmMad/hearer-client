@@ -8,13 +8,11 @@ const MailForm = () => {
 
 
     const { user } = useContext(AuthContext)
-    console.log(user.email)
 
     const [MailForm, setMailForm] = useState({})
 
     const handleInputChange = e => {
         const { name, value } = e.target
-        console.log('soy e', e)
         setMailForm({
 
             ...MailForm,

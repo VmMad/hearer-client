@@ -28,8 +28,8 @@ class UserService {
     deleteUser = id => {
         return this.api.delete(`/edit/${id}`)
     }
-    acceptHelper = (userid, helperid) => {
-        return this.api.put(`/edit/${userid}/accepthelper`, { helperid })
+    acceptHelper = (helper_id) => {
+        return this.api.put(`/accepthelper`, { helper_id })
     }
 
 
