@@ -34,13 +34,15 @@ const SearchPosts = ({ setSearchParams, loadTroubles }) => {
                     <Form.Label>Posted by:</Form.Label>
                     <Form.Control type="text" name="ownername" placeholder="Search users posts..."
                         onChange={handleFormChange}
-                        value={ownername} />
+                        value={ownername}
+                        autoComplete="off" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="events">
                     <Form.Label>description</Form.Label>
                     <Form.Control type="text" name="description" placeholder="description..."
                         onChange={handleFormChange}
-                        value={description} />
+                        value={description}
+                        autoComplete="off" />
                 </Form.Group>
             </Form>
         )

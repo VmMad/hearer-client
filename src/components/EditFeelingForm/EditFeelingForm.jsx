@@ -33,7 +33,7 @@ const EditFeelingsForm = ({ feeling, setFeeling, setEditing }) => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mt-3">
+            <Form.Group className="mt-5">
                 <Form.Label>Edit Post</Form.Label>
                 <Form.Control type="text" name="description" value={feelingsForm.description} onChange={handleInputChange} />
             </Form.Group>

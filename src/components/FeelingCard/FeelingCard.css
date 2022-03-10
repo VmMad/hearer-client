@@ -1,9 +1,67 @@
 .noHelpers{
-    border: .10em solid #333;
-    text-align:center;
-    background-color: rgba(0,0,0,.1);
-    padding: 10px;
     border-radius: 5px;
+    font-weight: 500;
+}
+
+.dropdown{
+    margin-left:auto;
+    margin-right: 15px;
+    text-align: center;
+    align-items: center;
+}
+.threelines{
+    display: flex;
+    padding: 0 5px 0 6px;
+    border-radius: 3px;
+    color: rgb(3, 0, 184);
+    font-weight: 900;
+    transition: transform 1s;
+}
+
+.threelines:active{
+    transform: rotate(-90deg);
+}
+
+.relativeDropdown{
+    position:absolute;
+    margin-left: auto;
+    margin-right: 0;
+}
+.viewHelpers{
+    margin: 0;
+    font-weight: 800;
+}
+.youText{
+    margin-left: 5px
+
+}
+
+.userDropdown{
+    color:green;
+}
+
+.dropdown{
+    display: flex;
+    position: relative;
+}
+.contactCard{
+    background-color: rgba(255,255,255,.6);
+    border-radius: 5px;
+    word-break: break-all;
+}
+.feelingCardImage{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.postCard h5{
     font-weight: 600;
-    
+    font-size: 15px;
+}
+
+.postCard{
+    align-items: center;
+}
+.postInHome{
+    width: 50%;
 }

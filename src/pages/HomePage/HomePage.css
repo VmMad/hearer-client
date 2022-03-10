@@ -1,9 +1,23 @@
 .makeAPostHome{
-    border: .10em solid #333;
-    padding: 40px;
-    border-radius:5px
+    border: .15em solid rgba(0, 0, 0, .5);
+    padding: 100px 100px;
+    border-radius:10px;
+    box-shadow:3px 3px 6px rgba(0,0,0,.2);
+    background-color: rgba(0, 119, 192, .05);
+
 }
+
 .HowDoYouFeel{
-font-weight: normal;
-font-style: 20px;
+    font-weight: normal;
+    font-style: 20px;
+}
+
+.lastPost{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.createPost{
+    height: 100px;
 }

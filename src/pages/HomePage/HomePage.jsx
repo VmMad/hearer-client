@@ -16,6 +16,7 @@ const HomePage = () => {
     const [feeling, setFeeling] = useState()
     const [editing, setEditing] = useState(false)
 
+
     useEffect(() => {
         user && loadFeeling()
     }, [user])
@@ -46,14 +47,15 @@ const HomePage = () => {
         <Container>
             <div className="makeAPostHome mt-5 mb-5">
                 <FeelingsForm setFeeling={setFeeling} />
-                {!editing && feeling && <FeelingCard feeling={feeling} />}
-                <Button onClick={() => setEditing(true)}>editar</Button>
-                <Button onClick={handlePageUp} >+</Button>
-                <Button onClick={handlePageDown}>-</Button>
+                <hr />
+
+                {!editing && feeling && <div className="mt-5 text-center lastPost">
+                    <p>Your last post:</p>
+                    <FeelingCard feeling={feeling} setEditing={setEditing} />
+                </div>}
                 {editing && feeling && <EditFeelingsForm setEditing={setEditing} setFeeling={setFeeling} feeling={feeling} />}
             </div>
-            {events && <  EventList events={events} />
-            }
+            {events && <EventList events={events} loadEvents={loadEvents} />}
 
         </Container>
 

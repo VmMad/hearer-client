@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/auth.context"
 import eventService from "./../../services/events.service"
 import LoadingSpinner from "./../LoadingSpinner/LoadingSpinner"
 import GoogleMaps from "../GoogleMap/GoogleMap"
+import "./EventDetails.css"
 
 const EventDetails = () => {
     const [event, setEvent] = useState()
@@ -40,7 +41,7 @@ const EventDetails = () => {
 
     if (event) {
         const { location, title, description, assistants, modality, assists } = event
-        console.log('location',location)
+        console.log('location', location)
         return (
             <Container className="mt-5">
                 {event && <>

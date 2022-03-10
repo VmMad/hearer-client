@@ -27,7 +27,7 @@ const NavbarBootstrap = () => {
                     <NavLink to="/home">Home</NavLink>
                     <NavLink to="/events">Events</NavLink>
                     <NavLink to="/mycontacts">My Contacts</NavLink>
-                {user?.role === 'user' ? null : <NavLink to="/assist">Offer help</NavLink>}
+                    {user?.role === 'user' ? null : <NavLink to="/assist">Offer help</NavLink>}
                 </Nav>
                 <Navbar.Toggle />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -37,15 +37,15 @@ const NavbarBootstrap = () => {
                                 <NavLink to={{}} onClick={() => handleModalOpen2()}> Login</NavLink>
                                 <NavLink to={{}} onClick={() => handleModalOpen()}>Sign Up</NavLink>
                                 <ModalAuth handleModalClose={handleModalClose}
-                                 handleModalClose2={handleModalClose2} 
-                                showModal={showModal} showModal2={showModal2} />
-                                 </>
+                                    handleModalClose2={handleModalClose2}
+                                    showModal={showModal} showModal2={showModal2} />
+                            </>
                             :
                             <><NavLink to="/profile">Hi, {user?.username}</NavLink>
                                 <NavLink to={{}} onClick={() => logOutUser()}>Logout</NavLink></>
                         }
-                        {user?.role !== 'helper' ? null : 
-                        <NavLink to={`/helperprofile/${user?._id}`}>Helper profile</NavLink>}
+                        {user?.role !== 'helper' ? null :
+                            <NavLink to={`/helperprofile/${user?._id}`}>Helper profile</NavLink>}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

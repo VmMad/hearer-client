@@ -6,6 +6,7 @@ import FeelingCard from "./../../components/FeelingCard/FeelingCard"
 import { Container } from "react-bootstrap"
 import userService from "../../services/user.service"
 import { AuthContext } from "../../context/auth.context"
+import "./AssistPage.css"
 
 const AssistPage = () => {
 
@@ -38,7 +39,8 @@ const AssistPage = () => {
     }
 
     return (
-        <Container>
+        <Container className="assistPage">
+
             <SearchPosts setSearchParams={setSearchParams} loadTroubles={loadTroubles} />
             {troubles && troubles.map((feeling, i) => {
 

@@ -65,7 +65,6 @@ const ContactsCard = ({ username, email, _id, role, setContacts, setTroubles, se
         <div className="contactCard mt-3">
             <span>{username}</span>
             <span>{email}</span>
-
             {(!showButton && window.location.pathname != "/mycontacts") ?
                 <Button variant="warning" className="btn-accepthelp" onClick={() => {
                     setShowButton(!showButton)

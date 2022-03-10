@@ -14,16 +14,7 @@
 .form-label{
    color: #302207;
 }
-.form-control,.form-select{
-    background-color:#fdeaf5 ;
-     border: .10em solid #472f07;
-     color: black;
-}
-.form-control:active{
-    background-color:#f10aa0!important ;
-     border: .10em solid #472f07;
- 
-}
+
 .editButton{
    display: flex ;
   color: #eeeae2;

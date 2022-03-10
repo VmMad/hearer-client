@@ -22,7 +22,6 @@ const FeelingsForm = ({ setFeeling }) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-
         const { username, _id } = user
         troubleService
             .createTrouble({
@@ -31,13 +30,14 @@ const FeelingsForm = ({ setFeeling }) => {
                 ...FeelingsForm
             })
             .then((resp) => setFeeling(resp.data))
+            .then(() => setFeelingsForm())
+            .catch(err => console.log(err))
     }
 
     return (
         <Form onSubmit={handleSubmit} className="mb-3">
             <Form.Group>
-                <Form.Label className="HowDoYouFeel">How do you feel today?</Form.Label>
-                <Form.Control type="text" name="description" onChange={handleInputChange} />
+                <Form.Control type="text" name="description" onChange={handleInputChange} placeholder="How do you feel today?" autoComplete="off" className="createPost" />
             </Form.Group>
             <Button variant="dark" type="submit" style={{ width: '100%' }}>Post</Button>
         </Form>
