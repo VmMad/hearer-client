@@ -36,7 +36,7 @@ const FeelingsForm = ({ setFeeling }) => {
     return (
         <Form onSubmit={handleSubmit} className="mb-3">
             <Form.Group>
-                <Form.Label>How do you feel today?</Form.Label>
+                <Form.Label className="HowDoYouFeel">How do you feel today?</Form.Label>
                 <Form.Control type="text" name="description" onChange={handleInputChange} />
             </Form.Group>
             <Button variant="dark" type="submit" style={{ width: '100%' }}>Post</Button>
