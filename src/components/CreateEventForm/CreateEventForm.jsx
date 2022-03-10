@@ -104,17 +104,9 @@ const CreateEventForm = () => {
         })
         .catch(err => console.log(err))
 
-
-
-
-
-
-
-
-
-
     return (
         <Container className='createEventForm'>
+            <h2>nuevo evento</h2>
             <Form onSubmit={handleFormSubmit} formulario={eventData} className='formEvent'>
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Event Title:</Form.Label>
