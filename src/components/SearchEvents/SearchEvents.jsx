@@ -36,7 +36,8 @@ const SearchEvents = ({ setEvent }) => {
         <Form onSubmit={handleInputSubmit}>
             <Form.Group className="mb-3" controlId="events">
                 <Form.Label>Search for events...</Form.Label>
-                <Form.Control type="text" name="eventTitle" placeholder="Filter by title" onKeyUp={updateEvents} onChange={handleFormChange} value={eventTitle} />
+                <Form.Control type="text" name="eventTitle" placeholder="Filter by title"
+                 onKeyUp={updateEvents} onChange={handleFormChange} value={eventTitle} />
             </Form.Group>
         </Form>
     )

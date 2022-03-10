@@ -6,6 +6,8 @@ import "./CreateEventForm.css"
 import { useNavigate } from "react-router-dom"
 import eventsService from "./../../services/events.service"
 import GoogleMaps from "../GoogleMap/GoogleMap"
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
+import { geocodeByAddress, getLatLng } from "react-google-places-autocomplete"
 
 
 
@@ -13,6 +15,18 @@ const CreateEventForm = () => {
 
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const [loadmap, setLM] = useState(false)
+
+    useEffect(() => {
+
+        setTimeout(() => setLM(true), 500)
+
+        eventsService
+            .getAllCategories()
+            .then(({ data }) => setCategories(data))
+            .catch(err => console.log(err))
+    }, [])
 
     const [eventData, setEventData] = useState({
         title: "",
@@ -53,7 +67,6 @@ const CreateEventForm = () => {
             setEventData({
                 ...eventData,
                 [name]: value,
-
             })
         }
     }
@@ -65,22 +78,39 @@ const CreateEventForm = () => {
             setCategory = createdCategory
         } else { setCategory = category }
         eventService
-            .modifyEvent({ ...eventData, category: setCategory })
+            .createEvent({ ...eventData, category: setCategory, location: location })
             .then(() => navigate("/events"))
             .catch(err => console.log(err))
     }
 
 
     const [categories, setCategories] = useState([])
+    const [coderValue, setCoderValue] = useState(null)
+    const [location, setLocation] = useState({ name: '', coordinates: [40.39274993833529, -3.698461840170875] })
 
-    useEffect(() => {
-        eventsService
-            .getAllCategories()
-            .then(({ data }) => {
-                setCategories(data)
-            })
-            .catch(err => console.log(err))
-    }, [])
+    useEffect(() => console.log('HA CAMBIADO EL CODER VALUE -----', coderValue), [coderValue])
+
+    coderValue && geocodeByAddress(coderValue?.value.description)
+        .then(results => {
+            console.log('SOY EL RESULT', results)
+
+            return getLatLng(results[0])
+        })
+        .then((response) => {
+            console.log('----- SOY EL RESULT ----- ', response)
+
+            setLocation({ name: '', coordinates: [response.lat, response.lng] })
+            setCoderValue(null)
+
+        })
+        .catch(err => console.log(err))
+
+
+
+
+
+
+
 
 
 
@@ -129,10 +159,12 @@ const CreateEventForm = () => {
                 <Form.Group className="mb-3" controlId="assistants">
                     <Form.Check type="checkbox" label="I'm attending" onChange={e => handleFormChange(e)} name="assistants" />
                 </Form.Group>
+                <GooglePlacesAutocomplete
+                    apiKey={process.env.REACT_APP_GOOGLEMAPS_KEY} selectProps={{ coderValue, onChange: setCoderValue }} />
+                {loadmap && <GoogleMaps location={location} setLocation={setLocation} />}
                 <Button variant="primary" type="submit" className="editButton">
-                    Edit
+                    create
                 </Button>
-                <GoogleMaps />
             </Form >
         </Container >
     )

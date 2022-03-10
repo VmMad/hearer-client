@@ -3,7 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import ModalAuth from "../ModalBoostrap/ModalBootstrap"
-
+import "./Navbar.css"
 
 
 const NavbarBootstrap = () => {
@@ -20,7 +20,7 @@ const NavbarBootstrap = () => {
     const { user, logOutUser } = useContext(AuthContext)
 
     return (
-        <Navbar collapseOnSelect expand="xs" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="xs" bg="dark" variant="dark" className="navbar">
             <Container className="navbar">
                 <NavLink to="/"><Navbar.Brand>Hearer</Navbar.Brand></NavLink>
                 <Nav className="me-auto flex-row">

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import eventService from "./../../services/events.service"
 import LoadingSpinner from "./../LoadingSpinner/LoadingSpinner"
+import GoogleMaps from "../GoogleMap/GoogleMap"
 
 const EventDetails = () => {
     const [event, setEvent] = useState()
@@ -38,7 +39,8 @@ const EventDetails = () => {
     }
 
     if (event) {
-        const { _id, title, description, assistants, modality, assists } = event
+        const { location, title, description, assistants, modality, assists } = event
+        console.log('location',location)
         return (
             <Container className="mt-5">
                 {event && <>
@@ -47,6 +49,7 @@ const EventDetails = () => {
                     <p>{description}</p>
                     <p>Number of assistants: {assistants.length}</p>
                     <p>{modality}</p>
+                    <GoogleMaps newHeight={'400px'} newWidth={'400px'} location={location} />
                     {assists && <><Button variant="danger" onClick={deleteAssist}>No asistir</Button></>}
                 </>
                 }
