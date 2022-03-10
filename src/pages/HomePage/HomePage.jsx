@@ -4,10 +4,10 @@ import troubleService from '../../services/troubles.service'
 import FeelingCard from "../../components/FeelingCard/FeelingCard"
 import eventsService from "../../services/events.service"
 import EventList from "../../components/EventList/EventList"
-
 import { AuthContext } from "../../context/auth.context"
 import { useEffect, useState, useContext } from "react"
 import { Container, Button } from 'react-bootstrap'
+import "./HomePage.css"
 
 
 const HomePage = () => {
@@ -44,13 +44,14 @@ const HomePage = () => {
 
     return (
         <Container>
-            <h1>home</h1>
-            <FeelingsForm setFeeling={setFeeling} />
-            {!editing && feeling && <FeelingCard feeling={feeling} />}
-            <Button onClick={() => setEditing(true)}>editar</Button>
-            <Button onClick={handlePageUp} >+</Button>
-            <Button onClick={handlePageDown}>-</Button>
-            {editing && feeling && <EditFeelingsForm setEditing={setEditing} setFeeling={setFeeling} feeling={feeling} />}
+            <div className="makeAPostHome mt-5 mb-5">
+                <FeelingsForm setFeeling={setFeeling} />
+                {!editing && feeling && <FeelingCard feeling={feeling} />}
+                <Button onClick={() => setEditing(true)}>editar</Button>
+                <Button onClick={handlePageUp} >+</Button>
+                <Button onClick={handlePageDown}>-</Button>
+                {editing && feeling && <EditFeelingsForm setEditing={setEditing} setFeeling={setFeeling} feeling={feeling} />}
+            </div>
             {events && <  EventList events={events} />
             }
 

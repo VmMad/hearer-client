@@ -10,7 +10,6 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
 import { geocodeByAddress, getLatLng } from "react-google-places-autocomplete"
 
 
-
 const CreateEventForm = () => {
 
     const { user } = useContext(AuthContext)

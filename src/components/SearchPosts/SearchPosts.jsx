@@ -17,8 +17,6 @@ const SearchPosts = ({ setSearchParams, loadTroubles }) => {
             [name]: value
         })
         setSearchParams(postsData)
-
-        loadTroubles()
     }
 
     const handleInputSubmit = e => {
