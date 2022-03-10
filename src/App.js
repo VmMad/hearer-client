@@ -7,6 +7,7 @@ function App() {
     <>
       <NavbarBootstrap />
       <AppRoutes />
+      
     </>
 
   )

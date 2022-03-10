@@ -4,6 +4,7 @@
     font-weight: 600;
     border-radius: 5px;
     text-align: center;
+    
 }
 
 .authError {
@@ -32,4 +33,7 @@
         opacity: 0;
   
     }
+  }
+  .modal{
+      z-index:9000;
   }

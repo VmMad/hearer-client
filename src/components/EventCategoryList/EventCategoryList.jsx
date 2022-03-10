@@ -8,7 +8,7 @@ const EventCategoryList = ({ filterByCategory }) => {
     useEffect(() => {
         eventsService
             .getAllCategories()
-            .then(({ data }) => setCategories([...data, "All"]))
+            .then(({ data }) => setCategories( ["Categorias",...data]))
             .catch(err => console.log(err))
     }, [])
 

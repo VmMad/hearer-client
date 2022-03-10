@@ -21,7 +21,20 @@
     transition: box-shadow 0.1s ease-in 50ms;
 
 }
+.listContainer{
+    margin-top: 5px;
+    display: flex;
+   height: 50px;
+    overflow-x: hidden;
+    transition: overflow-x 1s ease-in;
+}
 
+.listContainer:hover{
+    overflow-x: auto;
+}
 .eventPage{
     position: relative;
+}
+.searchBoxMine{
+     border-radius: 2rem!important;
 }

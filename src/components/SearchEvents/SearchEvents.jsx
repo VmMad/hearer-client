@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Form } from "react-bootstrap"
 import eventsService from "../../services/events.service"
+import './SearchEvents.css'
 
 const SearchEvents = ({ setEvent }) => {
 
@@ -37,7 +38,8 @@ const SearchEvents = ({ setEvent }) => {
             <Form.Group className="mb-3" controlId="events">
                 <Form.Label>Search for events...</Form.Label>
                 <Form.Control type="text" name="eventTitle" placeholder="Filter by title"
-                 onKeyUp={updateEvents} onChange={handleFormChange} value={eventTitle} />
+                 onKeyUp={updateEvents} onChange={handleFormChange} value={eventTitle}
+                 className='searchLabel' />
             </Form.Group>
         </Form>
     )

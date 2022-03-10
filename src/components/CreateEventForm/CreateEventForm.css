@@ -1,28 +1,46 @@
 
 
 .createEventForm{
-    background-color: #E4CDA7;
+    background-color: rgba(39, 101, 245, 0.12);
     display: flex ;
-    padding-left : 90px;
-  padding-right : 90px;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 0;
+    border-radius: 15px;
+  
+    margin-bottom: 20px;
+    
 }
+
+/* h2{
+  background-color: #186697 ;
+  color: #ffffff;
+  border-radius: 15px 15px 0px 0px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  
+
+
+} */
 
 .formEvent{
       width: 100%;
       padding-bottom: 20px;
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-top: 20px;
 }
 .form-label{
-   color: #302207;
+   color: #04203b;
+   font-weight:500;
+   font-size:20px;
 }
 .form-control,.form-select{
-    background-color:#fdeaf5 ;
+    background-color:#ebeef0 ;
      border: .10em solid #472f07;
      color: black;
-}
-.form-control:active{
-    background-color:#f10aa0!important ;
-     border: .10em solid #472f07;
- 
 }
 .editButton{
    display: flex ;

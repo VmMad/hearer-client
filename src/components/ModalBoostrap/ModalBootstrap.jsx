@@ -9,7 +9,7 @@ const ModalAuth = ({ showModal, showModal2, handleModalClose, handleModalClose2 
 
     return (
         <>
-            <Modal show={showModal} onHide={handleModalClose} size="md">
+            <Modal show={showModal} onHide={handleModalClose} size="md" className='modalwindow'>
                 <Modal.Header closeButton>
                     <Modal.Title>Sign Up</Modal.Title>
                 </Modal.Header>
