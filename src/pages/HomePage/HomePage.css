@@ -1,5 +1,4 @@
 .makeAPostHome{
-<<<<<<< HEAD
     border: .15em solid rgba(0, 0, 0, .5);
     padding: 100px 100px;
     border-radius:10px;
@@ -21,19 +20,8 @@
 
 .createPost{
     height: 100px;
-=======
     border: .10em solid #333;
     padding: 40px;
     border-radius:5px;
      background-color:rgba(72,72,72,0.4);
-}
-
-.HowDoYouFeel{
-font-weight: normal;
-font-style: 20px;
-}
-
-body{
-    background-color: #f0f0f8 ;
->>>>>>> a8dae082f662dfd32ed0204f51c5e11d3a4ba9c8
 }

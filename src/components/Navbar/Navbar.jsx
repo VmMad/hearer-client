@@ -20,27 +20,20 @@ const NavbarBootstrap = () => {
     const { user, logOutUser } = useContext(AuthContext)
 
     return (
-       
-        <Navbar collapseOnSelect expand="xs"  variant="dark" className="navbar" >
-            
-          
+
+        <Navbar collapseOnSelect expand="xs" variant="dark" className="navbar" >
+
+
             <Container className="navbarcont">
-                       
+
                 <NavLink to="/" className='logo'>
-                    <img src="https://res.cloudinary.com/dntpphebk/image/upload/v1646926963/zyrcwqkpyluqlejy2o3d.png" alt="" />
+                    <img src="https://res.cloudinary.com/dntpphebk/image/upload/v1646926963/zyrcwqkpyluqlejy2o3d.png" alt="" className="navImage" />
                 </NavLink>
                 <Nav className="me-auto flex-row">
-<<<<<<< HEAD
-                    <NavLink to="/home">Home</NavLink>
-                    <NavLink to="/events">Events</NavLink>
-                    <NavLink to="/mycontacts">My Contacts</NavLink>
-                    {user?.role === 'user' ? null : <NavLink to="/assist">Offer help</NavLink>}
-=======
                     <NavLink to="/home" className='navText'>Home</NavLink>
                     <NavLink to="/events" className='navText'>Events</NavLink>
                     <NavLink to="/mycontacts" className='navText'>My Contacts</NavLink>
                     {user?.role === 'user' ? null : <NavLink to="/assist" className='navText'>Offer help</NavLink>}
->>>>>>> a8dae082f662dfd32ed0204f51c5e11d3a4ba9c8
                 </Nav>
                 <Navbar.Toggle />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -61,12 +54,12 @@ const NavbarBootstrap = () => {
                             <NavLink to={`/helperprofile/${user?._id}`}>Helper profile</NavLink>}
                     </Nav>
                 </Navbar.Collapse>
-                        
-            </Container>   
-           
+
+            </Container>
+
         </Navbar>
-       
-        
+
+
     )
 }
 export default NavbarBootstrap

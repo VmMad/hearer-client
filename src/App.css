@@ -11,7 +11,7 @@ html {
 #root {
     min-height: 100vh;
     background: rgb(0,179,204);
-background: linear-gradient(275deg, rgba(0,179,204,0.4709205198823736) 0%, rgba(255,255,255,1) 100%);
+background: linear-gradient(275deg, rgba(0,179,204,0.20) 0%, rgba(255,255,255,1) 100%);
 }
 
 a{
