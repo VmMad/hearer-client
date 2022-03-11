@@ -1,24 +1,22 @@
 .contPage{
     min-height: 100vh;
-    background-color: rgb(255, 253, 253);
-    margin-top: 10%;
-    border-radius: 35px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    margin-top: 20px;
     background-image: 
     url(https://res.cloudinary.com/dntpphebk/image/upload/v1646922360/wp5yr9nopvsznzahg9l4.png);
-    background-repeat: no-repeat ;
+    background-repeat: repeat-y ;
+    object-fit: cover;
     background-size: 100%;
-    backdrop-filter: blur(90px);
     width: 50%;
-   
-    
 }
 .messcont{
    text-align: center;
 
 }
 .blur{
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(9px) ;;   
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(3px) ;
     height: 100vh;
 	 width: 100%;
     padding: 20px;

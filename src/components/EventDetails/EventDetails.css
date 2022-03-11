@@ -2,3 +2,15 @@ h2{
     text-transform: capitalize;
     text-align: center;
 }
+.eventDetailsPage{
+    min-height: 100%;
+}
+
+.eventDetailsCard{
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px rgba(255,255,255,.8);
+}
+
+.eventDetailsBody{
+    text-align: center;   
+}

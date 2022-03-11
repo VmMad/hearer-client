@@ -32,11 +32,8 @@ function GoogleMaps({ setLocation, location }) {
 
 
     function getLocation(e) {
-        console.log([e.latLng.lat(), e.latLng.lng()])
         setCenter({ lat: e.latLng.lat(), lng: e.latLng.lng() })
-
-        console.log('ESTE ES EL SETLOCATION DEL MAPA')
-        setLocation({name: '', coordinates: [e.latLng.lat(), e.latLng.lng()]})
+        setLocation({ name: '', coordinates: [e.latLng.lat(), e.latLng.lng()] })
     }
 
     return isLoaded ? (

@@ -6,12 +6,16 @@
 }
 html {
     scroll-behavior: smooth;
+
 }
 
 #root {
     min-height: 100vh;
-    background: rgb(0,179,204);
-background: linear-gradient(275deg, rgba(0,179,204,0.20) 0%, rgba(255,255,255,1) 100%);
+    /* background-color: #0094e90c;
+    background-image: linear-gradient(90deg, #0094e9ab 0%, #80d0c7 100%); */
+    background-color: #0094e918;
+    background-image: linear-gradient(90deg, #80d0c715 0%,#80d0c715 25%,#80d0c73b 50%, #80d0c73b 100%);
+
 }
 
 a{
@@ -30,4 +34,8 @@ a{
 }
 .navbar-nav a{
     margin: 0 5px;
+}
+
+button:focus{
+    box-shadow: none!important;
 }

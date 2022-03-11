@@ -7,7 +7,6 @@ const SearchPosts = ({ setSearchParams, loadTroubles }) => {
 
     const [postsData, setPostsData] = useState({
         ownername: "",
-        description: ""
     })
 
     const handleFormChange = e => {
@@ -23,7 +22,7 @@ const SearchPosts = ({ setSearchParams, loadTroubles }) => {
         e.preventDefault()
     }
 
-    const { ownername, description } = postsData
+    const { ownername } = postsData
 
     const { isLoading } = useContext(AuthContext)
 
@@ -31,17 +30,10 @@ const SearchPosts = ({ setSearchParams, loadTroubles }) => {
         return (
             <Form onSubmit={handleInputSubmit}>
                 <Form.Group className="mb-3" controlId="events">
-                    <Form.Label>Posted by:</Form.Label>
+                    <Form.Label>Posteado por:</Form.Label>
                     <Form.Control type="text" name="ownername" placeholder="Search users posts..."
-                        onChange={handleFormChange}
                         value={ownername}
-                        autoComplete="off" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="events">
-                    <Form.Label>description</Form.Label>
-                    <Form.Control type="text" name="description" placeholder="description..."
                         onChange={handleFormChange}
-                        value={description}
                         autoComplete="off" />
                 </Form.Group>
             </Form>

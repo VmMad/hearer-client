@@ -24,7 +24,7 @@
 .listContainer{
     margin-top: 5px;
     display: flex;
-   height: 50px;
+     height: 50px;
     overflow-x: hidden;
     transition: overflow-x 1s ease-in;
 }
@@ -37,4 +37,37 @@
 }
 .searchBoxMine{
      border-radius: 2rem!important;
+     background-color: rgba(255, 255, 255, 0.6);
+}
+.categoryContainer{
+    margin-top: 20px;
+}
+
+.filterEvents{
+    box-shadow: 0px 0px 9px rgb(255,255,255/70%);
+}
+::-webkit-scrollbar {
+  width: 3px;
+  height: 7px;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f141; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.6); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.466); 
+}
+.form-control{
+    background-color: rgba(255, 255, 255, 0.6)!important;
+}
+.form-control:focus{
+    box-shadow:none;
+    border:1px solid black
 }

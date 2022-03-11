@@ -1,5 +1,4 @@
 import "./ContactsCard.css"
-import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import userService from "../../../services/user.service"
 import { useContext, useEffect, useState } from "react"
@@ -7,6 +6,7 @@ import { AuthContext } from "../../../context/auth.context"
 import contactsService from "../../../services/contacts.service"
 import troubleService from "./../../../services/troubles.service"
 import SendMailModal from "../../Modals/SendMailModal/SendMailModal"
+import ContactDropdown from "../../ContactDropdown/ContactDropdown"
 
 
 const ContactsCard = ({ username, email, _id, role, setContacts, setTroubles, setFeelings }) => {
@@ -62,22 +62,14 @@ const ContactsCard = ({ username, email, _id, role, setContacts, setTroubles, se
 
 
     return (
-        <div className="contactCard mt-3">
-            <span>{username}</span>
-            <span>{email}</span>
-            {(!showButton && window.location.pathname != "/mycontacts") ?
-                <Button variant="warning" className="btn-accepthelp" onClick={() => {
-                    setShowButton(!showButton)
-                    acceptHelp(_id)
-                }}>Aceptar ayuda</Button> :
-                <Button variant="warning" className="btn-eliminar-contacto" onClick={() => {
-                    setShowButton(!showButton)
-                    deleteContact(_id)
-                }}>Delete Contact</Button>}
-            {role === 'helper' ? <Button onClick={() => navigate(`/helperprofile/${_id}`)}>credentials</Button> :
-                <Button onClick={() => setShow(true)}>Send Message</Button>
-
-            }
+        <div className="contactCard contactList mt-3">
+            <ContactDropdown showButton={showButton} setShowButton={setShowButton}
+                acceptHelp={acceptHelp} _id={_id} deleteContact={deleteContact} role={role} navigate={navigate}
+                setShow={setShow} />
+            <div className="contactCardUserData">
+                <span >{username}</span>
+                <span className="date">{email}</span>
+            </div>
             <SendMailModal handleClose={handleClose} show={show} />
         </div >
     )

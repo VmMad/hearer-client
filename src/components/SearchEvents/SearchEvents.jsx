@@ -36,10 +36,10 @@ const SearchEvents = ({ setEvent }) => {
     return (
         <Form onSubmit={handleInputSubmit}>
             <Form.Group className="mb-3" controlId="events">
-                <Form.Label>Search for events...</Form.Label>
-                <Form.Control type="text" name="eventTitle" placeholder="Filter by title"
-                 onKeyUp={updateEvents} onChange={handleFormChange} value={eventTitle}
-                 className='searchLabel' />
+                <Form.Label>Buscar eventos...</Form.Label>
+                <Form.Control type="text" name="eventTitle" placeholder="Buscar por título"
+                    onKeyUp={updateEvents} onChange={handleFormChange} value={eventTitle}
+                    className='searchLabel' autoComplete="off" />
             </Form.Group>
         </Form>
     )

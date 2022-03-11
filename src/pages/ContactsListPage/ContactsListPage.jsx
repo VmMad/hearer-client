@@ -4,9 +4,11 @@ import ContactsCard from "../../components/Contacts/ContactsCard/ContactsCard"
 import { AuthContext } from "../../context/auth.context"
 import contactsService from "../../services/contacts.service"
 import './ContactsListPage.css'
+
 const ContactsList = () => {
     const { user } = useContext(AuthContext)
     const [contacts, setContacts] = useState([])
+
 
     useEffect(() => {
         user && loadContactList()
@@ -20,12 +22,8 @@ const ContactsList = () => {
     }
 
     return (
-        <>            
-
-
-
-            <Container className="contPage">
-                <div class="blur">
+        <Container className="contPage">
+            <div className="blur">
                 <Row className="clist">
                     <Col className="mt-2">
                         {contacts.map((element, index) => {
@@ -33,10 +31,10 @@ const ContactsList = () => {
                         })}
                     </Col>
                 </Row>
-               { !contacts.length ? <p className="messcont">You dont have any contacts yet</p>:null}
-                </div>
-            </Container>
-        </>
+                {!contacts.length && <p className="messcont">Todavía no tienes contactos</p>}
+            </div>
+        </Container>
+
     )
 }
 export default ContactsList

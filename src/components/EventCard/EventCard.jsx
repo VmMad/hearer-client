@@ -6,7 +6,7 @@ import eventService from "../../services/events.service"
 import "./EventCard.css"
 
 
-const EventCard = ({ title, description, assistants, _id, loadEvents, assists, owner, image, userAssists }) => {
+const EventCard = ({ title, description, assistants, _id, loadEvents, assists, owner, image, userAssists, span }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
@@ -17,24 +17,26 @@ const EventCard = ({ title, description, assistants, _id, loadEvents, assists, o
     }
 
     return (
-        < Col xs={{ span: 5 }} style={{ wordWrap: "break-word" }}
-            className="eventCard text-center">
+        < Col xs={{ span: `${span}` }} style={{ wordWrap: "break-word" }}
+            className="eventCard text-center d-grid align-center">
             <img src={image} className='eventCardImage' />
             <div className="eventCardBody">
                 <h2>{title}</h2>
-                <p>{description}</p>
+                <hr className="whiteHr" />
+                <div className="d-flex flex-column justify-content-around">
+                    <p>{assistants.length === 1 ? `${assistants.length} Asistente` : `${assistants.length} Asistentes`} </p>
+                </div>
+                <div className="buttonsColumn d-flex flex-column">
+                    <Button variant="info" className="assistButton" onClick={() =>
+                        navigate(`/event/${_id}`)}>Ver detalles del evento</Button>
+                    {!userAssists ? <Button variant="warning" className="assistButton" onClick={() =>
+                        assistEvent(_id, user._id)}>
+                        Asistiré</Button> : <Button disabled variant="warning">Ya asistes</Button>}
+                    {owner == user._id && <Button variant="warning" className="assistButton" onClick={() =>
+                        navigate(`/event/${_id}/edit`)}>
+                        Editar</Button>}
+                </div>
             </div>
-            <div className="d-flex flex-column justify-content-around">
-                <p>{assistants.length} assistants</p>
-            </div>
-            <Button variant="info" className="assistButton" onClick={() =>
-                navigate(`/event/${_id}`)}>View Details</Button>
-            {!userAssists ? <Button variant="warning" className="assistButton" onClick={() =>
-                assistEvent(_id, user._id)}>
-                Asistiré</Button> : <Button disabled variant="warning">Ya asistes</Button>}
-            {owner == user._id && <Button variant="warning" className="assistButton" onClick={() =>
-                navigate(`/event/${_id}/edit`)}>
-                Editar</Button>}
         </Col >
     )
 }

@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap'
 import { useParams } from "react-router-dom"
 import userService from "../../services/user.service"
 import ModalMail from "../../components/ModalMail/ModalMail"
+import "./ProfileCard.css"
 
 
 
@@ -38,13 +39,18 @@ const HelperProfilePage = () => {
     const [editing, setEditing] = useState(false)
 
     return (
-        <article>
-            {helper && (!editing ?
-                <>  <HelpProfile user={helper} />
-                    <Button onClick={() => setEditing(true)}>editar</Button>
-                </> : <EditProfileForm setEditing={setEditing} user={helper} setHelper={setHelper} />)}
-            {id === user?._id ? null : <Button onClick={() => handleModalOpen()}>contactar</Button>}
-            <ModalMail handleModalClose={handleModalClose} showModal={showModal} />
+        <article className="profilePage">
+            <div>
+                <img src={helper?.image} className="profileImg" />
+                <div className="profileCard">
+                    {helper && (!editing ?
+                        <>  <HelpProfile user={helper} />
+                            {helper._id == user?._id && <Button onClick={() => setEditing(true)}>Editar</Button>}
+                        </> : <EditProfileForm setEditing={setEditing} user={helper} setHelper={setHelper} />)}
+                    {id === user?._id ? null : <Button onClick={() => handleModalOpen()} className="button-contact">Contactar</Button>}
+                    <ModalMail handleModalClose={handleModalClose} showModal={showModal} />
+                </div>
+            </div>
         </article>
 
     )

@@ -48,10 +48,11 @@ const NavbarBootstrap = () => {
                             </>
                             :
                             <><NavLink to="/profile">Hi, {user?.username}</NavLink>
-                                <NavLink to={{}} onClick={() => logOutUser()}>Logout</NavLink></>
+                                {user?.role !== 'helper' ||
+                                    <NavLink to={`/helperprofile/${user?._id}`}>Helper profile</NavLink>}
+                                <NavLink to={{}} onClick={() => logOutUser()} className="LogoutButton">Logout</NavLink></>
                         }
-                        {user?.role !== 'helper' ? null :
-                            <NavLink to={`/helperprofile/${user?._id}`}>Helper profile</NavLink>}
+
                     </Nav>
                 </Navbar.Collapse>
 

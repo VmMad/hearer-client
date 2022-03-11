@@ -11,7 +11,8 @@ const PostDropDown = ({ feeling, viewHelpers, isHelper, handleChange, userData, 
                 e.preventDefault()
                 onClick(e)
             }}
-            className={`d-flex flex-row align-items-center postDropDown relativeDropdown ${owner == user?._id ? "ownerDropdown" : "userDropdown"} ${className}`}
+            className={`d-flex flex-row align-items-center postDropDown relativeDropdown 
+            ${owner == user?._id ? "ownerDropdown" : "userDropdown"} ${className}`}
         >
             {children}
             {(owner == user?._id && feeling.helpers.length) ? <span className="threelines">

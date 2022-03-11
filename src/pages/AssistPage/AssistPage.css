@@ -1,7 +1,14 @@
 .assistPage{
     margin: 40px auto;
 }
-
+.assistPage.container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.assistPage form{
+    width: 50%;
+}
 ul{
     margin-bottom: 0;
 }

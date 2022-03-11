@@ -12,14 +12,14 @@ const EventList = ({ events, loadEvents, handlePageUp, handlePageDown }) => {
     if (window.location.pathname == '/home') {
         return (
             <Row className="justify-content-center text-center">
-                <span className="mb-5">Recomended events:</span>
-                <div className="buttonContainer"><Button className="buttonEvents" onClick={() => setShowEvents(!showEvents)}>{showEvents ? "Hide Events" : "Show Events"}</Button></div>
+                <span className="mb-3">Eventos recomendados:</span>
+                <div className="buttonContainer"><Button className="buttonEvents" onClick={() => setShowEvents(!showEvents)}>{showEvents ? "Ocultar los eventos" : "Mostrar los eventos"}</Button></div>
                 {showEvents && <>
                     <div className="buttonContainer"><Button className="buttonEventsPage" onClick={handlePageDown}>-</Button>
                         <Button className="buttonEventsPage" onClick={handlePageUp} >+</Button></div>
                     {events.map((e, index) => {
                         let userAssists = (e.assistants.includes(user?._id))
-                        return <EventCard {...e} userAssists={userAssists} key={index} loadEvents={loadEvents} />
+                        return <EventCard {...e} userAssists={userAssists} key={index} loadEvents={loadEvents} span="5" />
                     })}
                 </>}</Row>
 
@@ -28,8 +28,9 @@ const EventList = ({ events, loadEvents, handlePageUp, handlePageDown }) => {
         return (
             <Row className="justify-content-center">
                 {events.map((e, index) => {
-
-                    return <EventCard {...e} key={index} loadEvents={loadEvents} />
+                    let userAssists = (e.assistants.includes(user._id))
+                    return <EventCard {...e} key={index} loadEvents={loadEvents} span="3" userAssists={userAssists
+                    } />
                 })}
             </Row>
 

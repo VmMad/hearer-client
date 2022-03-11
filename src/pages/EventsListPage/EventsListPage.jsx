@@ -44,18 +44,22 @@ const EventsListPage = () => {
 
     return (
         <Container>
-            <div className="listContainer">
-              <EventCategoryList filterByCategory={filterByCategory} />
+            <div className="categoryContainer d-flex flex-column">
+                <div className="filterEvents eventPage">
+                    <span>Buscar por categoría...</span>
+                    <div className="listContainer">
+                        <EventCategoryList filterByCategory={filterByCategory} />
+                    </div>
+                    {user?.role != 'user' && <Link to="/events/create" className="createEvent"> Crear un evento
+                        <img className="createEventImg" src="https://res.cloudinary.com/dntpphebk/image/upload/v1646430434/plus_icon_152556_hljhsp.png" />
+                    </Link>}
+                    <SearchEvents className="searchBoxMine" setEvent={setEvent} />
+                </div>
             </div>
-            <Container className="mt-3 eventPage">
-                <Link to="/events/create" className="createEvent"> Create an event
-                    <img className="createEventImg" src="https://res.cloudinary.com/dntpphebk/image/upload/v1646430434/plus_icon_152556_hljhsp.png" />
-                </Link>
-                <SearchEvents className="searchBoxMine" setEvent={setEvent} />
-
+            <Container className="mt-3 ">
                 <Row className="justify-content-start mt-3">
 
-                    <Col xs={{ span: 6, offset: 1 }}>
+                    <Col xs={{ span: 12 }}>
                         < EventList events={events} loadEvents={loadEvents} />
                     </Col>
                 </Row>

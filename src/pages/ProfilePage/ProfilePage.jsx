@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react"
 import { AuthContext } from '../../context/auth.context'
 import troubleService from "../../services/troubles.service"
 import { useSearchParams } from "react-router-dom"
+import { Container } from "react-bootstrap"
 
 const ProfilePage = () => {
 
@@ -21,9 +22,10 @@ const ProfilePage = () => {
             .then(({ data }) => setFeelings(data))
             .catch(err => console.log(err))
     }
-
     return (
-        <FeelingsList feelings={feelings} setFeelings={setFeelings} />
+        <Container>
+            <FeelingsList feelings={feelings} setFeelings={setFeelings} />
+        </Container>
     )
 }
 export default ProfilePage

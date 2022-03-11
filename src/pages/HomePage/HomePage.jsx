@@ -6,7 +6,7 @@ import eventsService from "../../services/events.service"
 import EventList from "../../components/EventList/EventList"
 import { AuthContext } from "../../context/auth.context"
 import { useEffect, useState, useContext } from "react"
-import { Container, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import "./HomePage.css"
 
 
@@ -25,6 +25,7 @@ const HomePage = () => {
         troubleService
             .myTrouble()
             .then(({ data }) => setFeeling(data[0]))
+            .catch(err => console.log(err))
     }
 
     const [page, setPage] = useState(0)
@@ -48,9 +49,8 @@ const HomePage = () => {
             <div className="makeAPostHome mt-5 mb-5">
                 <FeelingsForm setFeeling={setFeeling} />
                 <hr />
-
                 {!editing && feeling && <div className="mt-5 text-center lastPost">
-                    <p>Your last post:</p>
+                    <p>Tu último post:</p>
                     <FeelingCard feeling={feeling} setEditing={setEditing} />
                 </div>}
                 {editing && feeling && <EditFeelingsForm setEditing={setEditing} setFeeling={setFeeling} feeling={feeling} />}

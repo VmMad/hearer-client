@@ -15,15 +15,11 @@
     border-radius: 3px;
     color: rgb(3, 0, 184);
     font-weight: 900;
-    transition: transform 1s;
 }
 
-.threelines:active{
-    transform: rotate(-90deg);
-}
 
 .relativeDropdown{
-    position:absolute;
+    position:relative;
     margin-left: auto;
     margin-right: 0;
 }
@@ -31,24 +27,23 @@
     margin: 0;
     font-weight: 800;
 }
-.youText{
-    margin-left: 5px
-
-}
-
-.userDropdown{
-    color:green;
-}
-
 .dropdown{
     display: flex;
-    position: relative;
 }
+.dropdown>a{
+    position: absolute;
+    margin-top: 5px;
+    z-index: 10;
+}
+
 .contactCard{
     background-color: rgba(255,255,255,.6);
     border-radius: 5px;
     word-break: break-all;
+    border: 0;
+    box-shadow:0px 0px 8px rgb(0 0 0 / 15%);
 }
+
 .feelingCardImage{
     width: 50px;
     height: 50px;
@@ -64,4 +59,29 @@
 }
 .postInHome{
     width: 50%;
+}
+.ml-4{
+    margin-left: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+.ml-4 h5{
+width: 100%;
+}
+
+.date{
+    color: rgba(0,0,0,.5);
+    
+}
+.assistPost{
+    width: 50%;
+    background-color: rgba(255,255,255,.9);
+    box-shadow: 0px 0px 8px rgba(0,0,0,.05);
+}
+
+.postInProfile{
+    max-width: 60%;
 }

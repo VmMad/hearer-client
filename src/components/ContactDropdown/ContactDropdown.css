@@ -1,0 +1,8 @@
+.dropdown-contact-list.dropdown>a{
+transform: rotate(0deg);
+transition: transform 500ms ease-in;
+}
+.dropdown-contact-list.dropdown.show>a{
+    transition: transform 500ms ease-out;
+    transform: rotate(-90deg);
+}

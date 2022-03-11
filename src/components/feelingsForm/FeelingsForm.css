@@ -1,0 +1,24 @@
+.buttonPost{
+  margin-top: 3px;
+  height: 50px;
+}
+.image-upload>input {
+  display: none;
+}
+.buttonsPost{
+  display: flex;
+  justify-content: end;
+}
+.buttonsPost p{
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.uploadImage{
+ cursor: pointer;
+  width: 30px;
+}
+.buttonUploadImage{
+  margin-right: 2px;
+}

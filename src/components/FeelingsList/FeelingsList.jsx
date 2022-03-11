@@ -6,7 +6,7 @@ const FeelingsList = ({ feelings, setFeelings }) => {
 
 
     return (
-        <Row>{
+        <Row className="justify-content-center">{
             feelings.map((e, index) => <FeelingCard feeling={e} key={index} setFeelings={setFeelings} />)
         }</Row>
     )

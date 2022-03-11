@@ -37,23 +37,32 @@ const EventDetails = () => {
         eventService
             .modifyEvent({ ...event, assistants: assistantsModified })
             .then(({ data }) => setEvent(data))
+            .catch(err => console.log(err))
     }
 
     if (event) {
         const { location, title, description, assistants, modality, assists } = event
-        console.log('location', location)
         return (
-            <Container className="mt-5">
-                {event && <>
-                    <h2>{title}</h2>
-                    <hr />
-                    <p>{description}</p>
-                    <p>Number of assistants: {assistants.length}</p>
-                    <p>{modality}</p>
-                    <GoogleMaps newHeight={'400px'} newWidth={'400px'} location={location} />
-                    {assists && <><Button variant="danger" onClick={deleteAssist}>No asistir</Button></>}
-                </>
-                }
+            <Container className="eventDetailsPage">
+                <Container className="mt-5 eventDetailsCard">
+                    {event && <>
+                        <h2>{title}</h2>
+                        <hr />
+                        <div className="eventDetailsBody">
+                            <p>Número de asistentes: {assistants.length}</p>
+                            <p>Modalidad: {modality}</p>
+                        </div>
+                        <hr />
+                        <div className="mapsContainer d-flex flex-row justify-content-around">
+                            <GoogleMaps newHeight={'400px'} newWidth={'400px'} location={location} />
+                            <div className="text-center d-flex flex-column justify-content-center"><p>Detalles del evento:</p>
+                                <p>{description}</p>
+                            </div>
+                        </div>
+                        {assists && <><Button className="mt-3" variant="danger" onClick={deleteAssist}>No asistir</Button></>}
+                    </>
+                    }
+                </Container>
             </Container>
         )
     }
