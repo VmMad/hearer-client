@@ -1,0 +1,19 @@
+.landingPage{
+    height: 92vh;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+
+.landing-card{
+    background-image: url(https://res.cloudinary.com/dntpphebk/image/upload/v1647189742/wp5yr9nopvsznzahg9l4-removebg-preview_pm3bxc.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 50%;
+    height: 70%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+    font-weight:bold;    
+}

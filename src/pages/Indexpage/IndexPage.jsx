@@ -1,7 +1,7 @@
-import ModalAuth from '../../components/ModalBoostrap/ModalBootstrap'
 import { Container } from 'react-bootstrap'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
+import "./IndexPage.css"
 
 const IndexPage = () => {
     const { user } = useContext(AuthContext)
@@ -15,8 +15,11 @@ const IndexPage = () => {
     const handleModalOpen2 = () => setShowModal2(true)
 
     return (
-        <Container>
-            <h1>Bienvenido a Hearer.</h1>
+        <Container className='landingPage'>
+            <div className="landing-card">
+                <h1>Bienvenido a Hearer.</h1>
+                <p>La plataforma donde si tienes algo que quieras decir, hay alguien que quiere escucharte.</p>
+            </div>
         </Container>
     )
 }
