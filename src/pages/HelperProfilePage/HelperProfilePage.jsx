@@ -40,16 +40,15 @@ const HelperProfilePage = () => {
 
     return (
         <article className="profilePage">
-            <div>
-                <img src={helper?.image} className="profileImg" />
-                <div className="profileCard">
-                    {helper && (!editing ?
-                        <>  <HelpProfile user={helper} />
-                            {helper._id == user?._id && <Button onClick={() => setEditing(true)}>Editar</Button>}
-                        </> : <EditProfileForm setEditing={setEditing} user={helper} setHelper={setHelper} />)}
-                    {id === user?._id ? null : <Button onClick={() => handleModalOpen()} className="button-contact">Contactar</Button>}
-                    <ModalMail handleModalClose={handleModalClose} showModal={showModal} />
-                </div>
+            <div className="profileCard">
+                {helper && (!editing ?
+                    <>
+                        <img src={helper?.image} className="profile-img" />
+                        <HelpProfile user={helper} />
+                        {helper._id == user?._id && <Button onClick={() => setEditing(true)}>Editar</Button>}
+                    </> : <EditProfileForm setEditing={setEditing} user={helper} setHelper={setHelper} />)}
+                {id === user?._id ? null : <Button onClick={() => handleModalOpen()} className="button-contact">Contactar</Button>}
+                <ModalMail handleModalClose={handleModalClose} showModal={showModal} />
             </div>
         </article>
 

@@ -9,18 +9,20 @@ const FeelingsForm = ({ setFeeling }) => {
 
     const { user } = useContext(AuthContext)
     const [loadingImage, setLoadingImage] = useState(false)
+    const [uploadMessage, setUploadMessage] = useState()
 
     const [FeelingsForm, setFeelingsForm] = useState({
         description: "",
-        image: ""
+        image: "",
+        anonymous: false
     })
 
     const handleInputChange = e => {
-        const { name, value } = e.target
+        const { name, value, checked } = e.target
         setFeelingsForm({
-
             ...FeelingsForm,
-            [name]: value
+            [name]: value,
+            ["anonymous"]: checked
         })
     }
 
@@ -50,6 +52,8 @@ const FeelingsForm = ({ setFeeling }) => {
             .then(({ data }) => {
                 setLoadingImage(false)
                 setFeelingsForm({ ...FeelingsForm, image: data.cloudinary_url })
+                setUploadMessage("Imagen subida correctamente")
+                setTimeout(() => setUploadMessage(undefined), 2000)
             })
             .catch(err => console.log(err))
     }
@@ -60,7 +64,10 @@ const FeelingsForm = ({ setFeeling }) => {
                 <Form.Control type="text" name="description" onChange={handleInputChange} placeholder="Cómo te sientes hoy?" autoComplete="off" className="createPost" />
             </Form.Group>
             <div className="buttonsPost">
-                {FeelingsForm?.image != "" && <p>Imagen subida correctamente</p>}
+                {uploadMessage && <p className="upload-successful">{uploadMessage}</p>}
+                <Form.Group className=" anonymous-check" controlId="anonymous-post">
+                    <Form.Check type="checkbox" label="Postear como anónimo?" onChange={e => handleInputChange(e)} name="anonymous" />
+                </Form.Group>
                 <Button variant="transparent" className="buttonUploadImage image-upload">
                     <label htmlFor="file-input">
                         <img src="https://res.cloudinary.com/dntpphebk/image/upload/v1646951795/icons8-image-64_xjhsso.png" className="uploadImage" />
@@ -68,6 +75,7 @@ const FeelingsForm = ({ setFeeling }) => {
                     <input id="file-input" type="file" onChange={uploadProfileImage} />
                 </Button>
                 <Button variant="dark" type="submit" className="buttonPost" disabled={loadingImage}>{loadingImage ? 'Espera...' : 'Postear'}</Button>
+
             </div>
         </Form>
     )

@@ -1,0 +1,42 @@
+.loginform-page {
+    height: 92.8vh;
+}
+
+.form-container {
+    background: url(https://res.cloudinary.com/dntpphebk/image/upload/v1647189742/wp5yr9nopvsznzahg9l4-removebg-preview_pm3bxc.png) no-repeat center;
+    backdrop-filter: blur(20px);
+    padding: 100px 80px;
+    width: 40%;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 0px 0px 7px rgb(0 0 0/25%);
+}
+
+.fade.modal.show {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.modal-header,
+.modal-body {
+    text-align: center;
+}
+
+.modal-content {
+    width: 100%;
+    background: url(https://res.cloudinary.com/dntpphebk/image/upload/v1647189742/wp5yr9nopvsznzahg9l4-removebg-preview_pm3bxc.png) no-repeat center, rgba(255, 255, 255, .9);
+    box-shadow: 0px 0px 6px rgba(255, 255, 255, .5);
+    border: none;
+    padding: 40px;
+    height: 45%;
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.modal-dialog.modal-lg{
+    align-items: center;
+    height: 92vh;
+    display: flex;
+}

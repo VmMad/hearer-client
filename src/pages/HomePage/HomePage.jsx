@@ -51,7 +51,7 @@ const HomePage = () => {
                 <hr />
                 {!editing && feeling && <div className="mt-5 text-center lastPost">
                     <p>Tu último post:</p>
-                    <FeelingCard feeling={feeling} setEditing={setEditing} />
+                    <FeelingCard feeling={feeling} setEditing={setEditing} setFeeling={setFeeling} />
                 </div>}
                 {editing && feeling && <EditFeelingsForm setEditing={setEditing} setFeeling={setFeeling} feeling={feeling} />}
             </div>

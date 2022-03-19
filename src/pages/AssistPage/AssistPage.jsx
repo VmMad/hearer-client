@@ -14,8 +14,6 @@ const AssistPage = () => {
     const [troubles, setTroubles] = useState([])
     const [userData, setUserData] = useState({})
 
-
-
     const { user } = useContext(AuthContext)
 
     useEffect(() => {
@@ -37,6 +35,16 @@ const AssistPage = () => {
             .then(({ data }) => setUserData(data))
             .catch(err => console.log(err))
     }
+    const updateList = (updatedFeeling) => {
+        const updatedList = troubles.map(elm => {
+            if (elm._id === updatedFeeling._id) {
+                return updatedFeeling
+            } else {
+                return elm
+            }
+        })
+        setTroubles(updatedList)
+    }
 
     return (
         <Container className="assistPage">
@@ -45,7 +53,7 @@ const AssistPage = () => {
             {troubles && troubles.map((feeling, i) => {
 
                 return <FeelingCard feeling={feeling} key={i} setTroubles={setTroubles}
-                    isHelper={feeling.helpers.some(elm => elm._id === user._id)} userData={userData} setUserData={setUserData} />
+                    isHelper={feeling.helpers.some(elm => elm._id === user._id)} userData={userData} setUserData={setUserData} updateList={updateList} />
             })}
         </Container>
     )

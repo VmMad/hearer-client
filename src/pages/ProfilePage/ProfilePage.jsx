@@ -22,9 +22,21 @@ const ProfilePage = () => {
             .then(({ data }) => setFeelings(data))
             .catch(err => console.log(err))
     }
+    const updateList = (updatedFeeling) => {
+        const updatedList = feelings.map(elm => {
+            if (elm._id === updatedFeeling._id) {
+                return updatedFeeling
+            } else {
+                return elm
+            }
+        })
+        setFeelings(updatedList)
+    }
+
+
     return (
         <Container>
-            <FeelingsList feelings={feelings} setFeelings={setFeelings} />
+            <FeelingsList feelings={feelings} setFeelings={setFeelings} updateList={updateList} />
         </Container>
     )
 }

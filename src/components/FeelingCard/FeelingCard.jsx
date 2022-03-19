@@ -6,12 +6,12 @@ import "./FeelingCard.css"
 import PostDropDown from "../PostDropdown/PostDropdown"
 import userService from "../../services/user.service"
 
-const FeelingCard = ({ feeling, className, setTroubles, setFeelings, isHelper, userData, setUserData, setEditing }) => {
-
+const FeelingCard = ({ feeling, setTroubles, setFeelings, isHelper, userData, setUserData, setEditing, setFeeling, updateList }) => {
+    const defaultAnonymous = "https://res.cloudinary.com/dntpphebk/image/upload/v1646728217/146-1468479_my-profile-icon-blank-profile-picture-circle-hd-removebg-preview_gkvvm1.png"
     const [clicked, setClicked] = useState(false)
     const [viewHelpers, setViewHelpers] = useState(false)
     const { user } = useContext(AuthContext)
-    const { _id, description, ownername, helpers, owner, createdAt, image } = feeling
+    const { _id, description, ownername, helpers, owner, createdAt, image, anonymous } = feeling
     const [ownerData, setOwnerData] = useState()
 
     const getUserOwner = (owner) => {
@@ -33,6 +33,21 @@ const FeelingCard = ({ feeling, className, setTroubles, setFeelings, isHelper, u
             .catch(err => console.log(err))
     }
 
+    const changeAnonymity = (boolean) => {
+        let modifiedFeeling = { ...feeling, anonymous: boolean }
+        troubleService
+            .modifyTroubles(modifiedFeeling)
+            .then(({ data }) => {
+                if (window.location.pathname === "/home") {
+                    setFeeling(data)
+                } else {
+                    updateList(data)
+                }
+            }
+            )
+            .catch(err => console.log(err))
+    }
+
     const handleChange = () => {
         viewHelpers ? setViewHelpers(false) : setViewHelpers(true)
     }
@@ -40,17 +55,21 @@ const FeelingCard = ({ feeling, className, setTroubles, setFeelings, isHelper, u
         <div className={`contactCard ${window.location.pathname == "/assist" ? "assistPost" : ""} mt-3 mb-3 
         ${window.location.pathname == "/home" ? "postInHome" : ""}
         ${window.location.pathname == "/profile" ? "postInProfile" : ""}`}>
-
+            {ownerData && console.log(ownerData)}
             <PostDropDown feeling={feeling} className={clicked} setTroubles={setTroubles} setFeelings={setFeelings}
                 isHelper={isHelper} userData={userData} setUserData={setUserData}
                 owner={owner} user={user} offerHelp={offerHelp} _id={_id} viewHelpers={viewHelpers} handleChange={handleChange}
-                onClick={() => setClicked(!clicked)} setEditing={setEditing} />
+                onClick={() => setClicked(!clicked)} setEditing={setEditing} changeAnonymity={changeAnonymity} />
 
             <div className="d-flex postCard">
-                <img src={ownerData?.image} className="feelingCardImage" />
+                <img src={!anonymous ? ownerData?.image : defaultAnonymous} className="feelingCardImage" />
                 <div className="ml-4">
-                    <h5>  {ownername}</h5>
-                    <h5 className="date">{createdAt?.split('T')[0].split("-")[2] + "-" + createdAt?.split('T')[0].split("-")[1] + "-" + createdAt?.split('T')[0].split("-")[0]}</h5>
+                    <h5>  {!anonymous ? (ownerData?.username ? ownerData?.username :
+                        <span className="red-text">Usuario eliminado</span>) :
+                        `Anonymous ${owner === user._id ? "(You)" : ""}`}</h5>
+                    <h5 className="date">
+                        {createdAt?.split('T')[0].split("-")[2] + "-" + createdAt?.split('T')[0].split("-")[1] + "-" + createdAt?.split('T')[0].split("-")[0]}
+                    </h5>
                 </div>
             </div>
             <hr />

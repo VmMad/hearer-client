@@ -9,7 +9,7 @@ const ModalAuth = ({ showModal, showModal2, handleModalClose, handleModalClose2 
 
     return (
         <>
-            <Modal show={showModal} onHide={handleModalClose} size="md" className='modalwindow'>
+            <Modal show={showModal} onHide={handleModalClose} size="lg" className='modalwindow'>
                 <Modal.Header closeButton>
                     <Modal.Title>Sign Up</Modal.Title>
                 </Modal.Header>
@@ -18,7 +18,7 @@ const ModalAuth = ({ showModal, showModal2, handleModalClose, handleModalClose2 
                 </Modal.Body>
             </Modal>
 
-            <Modal show={showModal2} onHide={handleModalClose2} size="md">
+            <Modal show={showModal2} onHide={handleModalClose2} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Log In</Modal.Title>
                 </Modal.Header>

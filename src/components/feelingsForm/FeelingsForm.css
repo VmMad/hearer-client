@@ -1,24 +1,36 @@
-.buttonPost{
+.buttonPost {
   margin-top: 3px;
   height: 50px;
 }
+
 .image-upload>input {
   display: none;
 }
-.buttonsPost{
+
+.buttonsPost {
   display: flex;
   justify-content: end;
 }
-.buttonsPost p{
+
+.buttonsPost p {
   display: flex;
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.uploadImage{
- cursor: pointer;
+.uploadImage {
+  cursor: pointer;
   width: 30px;
 }
-.buttonUploadImage{
+
+.buttonUploadImage {
   margin-right: 2px;
+}
+
+.upload-successful {
+  color: green;
+}
+
+.anonymous-check{
+  margin: 20px auto auto 0;
 }

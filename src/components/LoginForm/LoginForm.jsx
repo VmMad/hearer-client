@@ -4,6 +4,7 @@ import authService from '../../services/auth.service'
 import { AuthContext } from "../../context/auth.context"
 import { useNavigate } from "react-router-dom"
 import { MessageContext } from "../../context/userMessage.context"
+import "./LoginForm.css"
 
 const LoginForm = ({ closeModal }) => {
 

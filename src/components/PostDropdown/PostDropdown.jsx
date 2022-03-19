@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { Dropdown, FormControl, Button } from "react-bootstrap"
+import { Dropdown } from "react-bootstrap"
 
-const PostDropDown = ({ feeling, viewHelpers, isHelper, handleChange, userData, setUserData, owner, user, offerHelp, _id, className, setEditing }) => {
+const PostDropDown = ({ feeling, viewHelpers, isHelper, handleChange, userData, setUserData, owner, user, offerHelp, _id, className, setEditing, changeAnonymity }) => {
 
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <a
@@ -69,6 +69,8 @@ const PostDropDown = ({ feeling, viewHelpers, isHelper, handleChange, userData, 
                 {!feeling.helpers.length && feeling.owner === user?._id ?
                     <Dropdown.Item className="noHelpers">No tienes solicitudes</Dropdown.Item > : null}
                 {window.location.pathname == "/home" && < Dropdown.Item onClick={() => setEditing(true)}>Edit</Dropdown.Item >}
+                {owner === user._id && (!feeling.anonymous ? <Dropdown.Item onClick={() => changeAnonymity(true)}>Hacer anónimo</Dropdown.Item > :
+                    <Dropdown.Item onClick={() => changeAnonymity(false)}>Quitar anonimato</Dropdown.Item >)}
             </Dropdown.Menu>
         </Dropdown >
     )
